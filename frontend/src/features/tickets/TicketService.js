@@ -23,14 +23,13 @@ const getTickets = async(token) => {
     return response.data
 }
 
-//Get user ticket
+//Get user single ticket
 const getTicket = async(ticketId, token) => {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
         }
     }
-    console.log(API_URL + ticketId)
     
     const response = await axios.get(API_URL + ticketId, config)
     return response.data
@@ -43,7 +42,6 @@ const closeTicket = async(ticketId, token) => {
             Authorization: `Bearer ${token}`
         }
     }
-    console.log(API_URL + ticketId)
     
     const response = await axios.put(API_URL + ticketId, {status: 'closed'}, config)
     return response.data
